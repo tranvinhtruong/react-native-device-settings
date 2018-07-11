@@ -34,9 +34,9 @@ function wifi(){
 
 function location(){
   try{
-    if (Platform.OS !== 'ios') {
+    (Platform.OS === 'ios') ?
+      Linking.openURL('App-Prefs:root=Privacy&path=LOCATION') :
       RNOpenSettings.locationSettings();
-    }
   }catch(err){
     console.error(err);
   }
